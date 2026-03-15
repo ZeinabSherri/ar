@@ -24,7 +24,6 @@ export const Pagination = memo(function Pagination({
   const from = skip + 1;
   const to = Math.min(skip + limit, total);
 
-  // Build page numbers to show: always show first, last, current ±1, with ellipsis
   const getPages = (): (number | "ellipsis")[] => {
     if (totalPages <= 7) return Array.from({ length: totalPages }, (_, i) => i + 1);
 

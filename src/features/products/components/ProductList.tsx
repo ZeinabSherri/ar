@@ -38,7 +38,6 @@ export function ProductList() {
 
   useEffect(() => {
     pagination.goToPage(1);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedSearch, category]);
 
   const handleProductClick = useCallback((product: Product) => {
