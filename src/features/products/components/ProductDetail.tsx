@@ -23,7 +23,7 @@ export function ProductDetail({ productId, onClose }: ProductDetailProps) {
     }
   }, [productId]);
 
-  // Trap focus within modal
+
   useEffect(() => {
     if (productId === null) return;
     const handleKeyDown = (e: KeyboardEvent) => {

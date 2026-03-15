@@ -30,3 +30,11 @@ After completing any task, update this file under the **Task Log** section below
 - Files affected
 -->
 
+### 2026-03-15 — Complete caching strategy in useProducts hooks
+
+- Added `GC_TIME` constant (10 minutes) alongside existing `STALE_TIME` (5 minutes)
+- Added `gcTime: GC_TIME` to `useProducts` and `useProductById` query calls
+- **Decision:** `gcTime` must always exceed `staleTime` — otherwise TanStack Query can garbage-collect cached data while it's still within the fresh window, forcing an unnecessary refetch when the user navigates back
+- `useCategories` intentionally left without `gcTime` since its `staleTime: Infinity` means data never expires anyway
+- **Files changed:** `src/features/products/hooks/useProducts.ts`
+

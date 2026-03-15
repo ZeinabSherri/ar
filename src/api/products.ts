@@ -7,8 +7,7 @@ export async function fetchProducts(
   skip: number
 ): Promise<ProductsResponse> {
   const res = await fetch(
-    `${BASE_URL}/products?limit=${limit}&skip=${skip}&select=id,title,price,category,rating,stock,thumbnail,brand,availabilityStatus`
-  );
+     `${BASE_URL}/products?limit=${limit}&skip=${skip}&select=id,title,price,discountPercentage,category,rating,stock,thumbnail,brand,availabilityStatus`  );
   if (!res.ok) throw new Error(`Failed to fetch products: ${res.status}`);
   return res.json();
 }

@@ -28,7 +28,7 @@ export function Header() {
             onClick={toggleTheme}
             aria-label={theme === "light" ? t("theme.dark") : t("theme.light")}
           >
-            <span className={styles.themeIcon}>{theme === "light" ? "○" : "●"}</span>
+          <span className={styles.themeIcon}>{theme === "light" ? "☀️" : "🌙"}</span>
           </button>
         </div>
       </div>

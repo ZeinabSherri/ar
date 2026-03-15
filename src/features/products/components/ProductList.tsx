@@ -62,11 +62,6 @@ export function ProductList() {
           <p className={styles.heroEyebrow}>{t("app.subtitle")}</p>
           <h1 className={styles.heroTitle}>{t("app.title")}</h1>
         </div>
-        {total > 0 && (
-          <span className={styles.heroCount} aria-live="polite">
-            <span dir="ltr">{total}</span> {t("pagination.results")}
-          </span>
-        )}
       </div>
 
       <section className={styles.filters} aria-label="Search and filter products">
@@ -103,6 +98,12 @@ export function ProductList() {
           </select>
         </div>
       </section>
+
+      {total > 0 && (
+        <span className={styles.heroCount} aria-live="polite">
+          <span dir="ltr">{total}</span> {t("pagination.results")}
+        </span>
+      )}
 
       {isError && <ErrorState onRetry={handleRetry} message={error?.message ?? t("error.message")} />}
 

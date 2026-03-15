@@ -8,7 +8,7 @@ import {
 } from "../../../api/products";
 import type { ProductsResponse, Product } from "../../../types/product";
 
-const STALE_TIME = 1000 * 60 * 5; // 5 minutes
+const STALE_TIME = 1000 * 60 * 5; 
 
 export interface UseProductsOptions {
   search: string;
@@ -46,7 +46,7 @@ export function useProducts({
       queryKey,
       queryFn,
       staleTime: STALE_TIME,
-      placeholderData: (prev) => prev, // keeps previous data while fetching (replaces keepPreviousData)
+      placeholderData: (prev) => prev, 
     });
 
   return {

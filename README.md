@@ -75,7 +75,7 @@ All price, rating, stock, and numeric values have `dir="ltr"` applied inline per
 
 ## Bonus Features Completed
 
-- **TanStack Query** — cache management, background refetch, placeholderData for smooth pagination
+- **TanStack Query** — cache management, background refetch, placeholderData for smooth pagination. Search results are cached for 5 minutes via staleTime — repeated queries return instantly without a network request.
 - **Unit tests** — `useDebounce` (6 tests) and `usePagination` (11 tests) via Vitest + React Testing Library
 - **Dark mode** — toggle in header, persisted to localStorage, CSS variables for instant switching
 - **Accessible markup** — `aria-label`, `aria-live`, `aria-current`, `role` attributes throughout; keyboard navigation on product cards (Enter/Space to open); focus trap in modal; skip-to-main link; semantic HTML (`<main>`, `<article>`, `<nav>`, `<dl>`, `<section>`)

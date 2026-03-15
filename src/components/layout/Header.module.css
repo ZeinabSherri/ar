@@ -44,8 +44,8 @@
 
 .controls {
   display: flex;
-  align-items: stretch;
-  border: 1px solid var(--border);
+  align-items: center;
+  gap: 8px;
 }
 
 .iconBtn {
@@ -53,37 +53,36 @@
   align-items: center;
   justify-content: center;
   padding: 0 16px;
-  border: none;
-  border-inline-start: 1px solid var(--border);
-  background: transparent;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
   color: var(--text-secondary);
   cursor: pointer;
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  transition: color 0.15s, background 0.15s;
-  min-height: 34px;
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
+  min-height: 36px;
+  min-width: 80px;
   font-family: var(--font-body);
   white-space: nowrap;
-}
-
-.iconBtn:first-child {
-  border-inline-start: none;
+  border-radius: 6px;
 }
 
 .iconBtn:hover {
   color: var(--accent);
   background: var(--accent-subtle);
+  border-color: var(--accent);
 }
 
 .iconBtn:focus-visible {
   outline: 1px solid var(--accent);
-  outline-offset: -2px;
+  outline-offset: 2px;
 }
 
 .themeIcon {
-  font-size: 0.85rem;
+  font-size: 16px;
+  line-height: 1;
 }
 
 .langLabel {

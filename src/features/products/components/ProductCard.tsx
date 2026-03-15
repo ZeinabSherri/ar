@@ -17,7 +17,10 @@ function getStockStatus(stock: number, availabilityStatus: string) {
 export const ProductCard = memo(function ProductCard({ product, onClick }: ProductCardProps) {
   const { t } = useTranslation();
   const stockStatus = getStockStatus(product.stock, product.availabilityStatus);
-  const discountedPrice = product.price * (1 - product.discountPercentage / 100);
+  const hasDiscount = Math.round(product.discountPercentage) > 0;
+  const discountedPrice = product.price && hasDiscount
+    ? product.price * (1 - product.discountPercentage / 100)
+    : product.price ?? 0;
 
   const stockLabels = {
     in: t("product.inStock"),
@@ -48,7 +51,7 @@ export const ProductCard = memo(function ProductCard({ product, onClick }: Produ
           className={styles.image}
           loading="lazy"
         />
-        {product.discountPercentage > 0 && (
+        {hasDiscount && (
           <span className={styles.discountBadge} aria-label={`${Math.round(product.discountPercentage)}% ${t("product.discount")}`}>
             −{Math.round(product.discountPercentage)}%
           </span>
@@ -67,7 +70,7 @@ export const ProductCard = memo(function ProductCard({ product, onClick }: Produ
         <div className={styles.footer}>
           <div className={styles.priceGroup}>
             <span className={styles.price} dir="ltr">${discountedPrice.toFixed(2)}</span>
-            {product.discountPercentage > 0 && (
+            {hasDiscount && (
               <span className={styles.originalPrice} dir="ltr">${product.price.toFixed(2)}</span>
             )}
           </div>
